@@ -24,7 +24,7 @@ $(PROGRAM): $(OBJ_FILES)
 
 # Regra para executar o programa
 run: $(PROGRAM)
-	./$< < ./CasosTestes/1.in
+	./$< 
 
 # Regra para limpar os arquivos objeto e o executável
 clean:
@@ -33,5 +33,10 @@ clean:
 
 # Indicar que 'all' depende do programa
 all: $(PROGRAM)
+
+debug: $(PROGRAM)
+# gdb -ex run --args $(PROGRAM) < ./CasosTestes/1.in
+	gdb ./$<
+
 
 .PHONY: run clean
